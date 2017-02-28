@@ -35,3 +35,4 @@ TODO
 * fix graceful shutdown (stop script)
 * make clusterable from docker-compose
 * mongodb backend
+* test with 6.2 / 6.3beta
