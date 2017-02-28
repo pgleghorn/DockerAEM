@@ -11,23 +11,27 @@ A docker-compose.yml is used to bring up author, publish and dispatcher.
 USAGE
 
 * edit buildDockerImages.sh and configure
- - AEM_USER
- - AEM_DIR
- - AEM_JAR
- - AEM_LICENSE
- - CQ_RUNMODE for author and publish, if desired
- - CQ_PORT for author and publish
- - AEM_JMXPORT for author and publish
-* place AEM jar and license.properties into "base" directory
-* "./buildDockerImages.sh" to generate the images
-* "docker-compose up" to run the containers 
+ - AEM_USER - unix user to install with
+ - AEM_DIR - directory to install into
+ - AEM_JAR - filename of AEM jar
+ - AEM_LICENSE - filename of AEM license
+ - CQ_RUNMODE - for author and publish, if desired
+ - CQ_PORT - http por for author and publish
+ - AEM_JMXPORT - JMX port for author and publish
+* place the AEM jar and license.properties into "base" directory
+* Run "./buildDockerImages.sh" to generate the images
+* Run "docker-compose up" to run the containers 
 
 TODO
 
 * enhance tools/startup.sh, JMX should be an option
 * optional service pack install
 * optional package/bundle install
-* optional AEM configuration
+* optional AEM configuration, eg PyAEM
 * possible to make even faster startup? (non-essential bundles)
 * repository compaction
 * get java from .rpm, not yum
+* convert to proper configuration management eg puppet, ansible
+* fix graceful shutdown (stop script)
+* make clusterable from docker-compose
+* mongodb backend
