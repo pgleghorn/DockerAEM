@@ -1,0 +1,13 @@
+FROM centos
+
+RUN yum update; exit 0
+RUN yum install -y httpd mod_ssl mod_proxy_html
+
+COPY	dispatcher-apache2.4-4.2.0.so /etc/httpd/modules/dispatcher-apache2.4-4.2.0.so
+COPY	00-dispatcher.conf /etc/httpd/conf.modules.d/00-dispatcher.conf
+COPY	80-dispatcher.conf /etc/httpd/conf.d/80-dispatcher.conf
+COPY	dispatcher.any /etc/httpd/conf.d/dispatcher.any
+
+EXPOSE 80
+
+CMD /usr/sbin/apachectl -D FOREGROUND
