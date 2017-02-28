@@ -19,14 +19,6 @@ COPY tools $AEM_DIR/tools
 
 RUN echo sling.run.modes=${CQ_RUNMODE} >> crx-quickstart/conf/sling.properties && \
     tools/startup.sh -exit
-#    crx-quickstart/bin/start && \
-#    tools/waitForStart.sh -exit
-
-# TODO configs
-#RUN curl http://localhost:4502/etc/replication/agents.author/publish/jcr:content -F transportUri=http://${PUBLISH_HOST}:4503/bin/receive?sling:authRequestLogin=1 -u admin:admin
-
-# TODO package/sp install
-#RUN $AEM_DIR/installpackages.sh && \
 
 # TODO clean shutdown
 #RUN crx-quickstart/bin/stop
